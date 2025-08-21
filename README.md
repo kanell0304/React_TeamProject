@@ -6,15 +6,17 @@ git url: https://github.com/kanell0304/React_TeamProject.git <br>
 
 1. 프로젝트 파일 생성하기
 2. 해당 파일로 경로이동
-3. 아무파일 하나 생성해서
+3. 아무파일 하나 생성해서 (text파일같은거)
 - git init
 - git add .
 - git commit -m "msg"
 명령어로 로컬 저장소 만들기
-4. 깃 허브 연결
+4. 이후 만든 임시 파일을 삭제 후 다시 커밋(아무것도 없던 상태로 되돌려서 커밋)
+5. 깃 허브 연결
 - git remote add origin https://github.com/kanell0304/React_TeamProject.git
-5. 
-- git pull                    - 원격 저장소에서 파일 가져오기
+6. git pull로 저장소에 있는 코드 가져오기
+- git pull -u origin main - 원격 저장소 'origin'의 'main' 브랜치를 풀하고 업스트림으로 설정
+# history관련 오류 발생 시 - git pull origin main --allow-unrelated-histories
 
 - git 명령어 모음 - ('br' 태그 제외)
 git init                      - 로컬 저장소 초기화 <br>
