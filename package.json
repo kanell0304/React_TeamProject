@@ -1,10 +1,18 @@
 {
+<<<<<<< HEAD
   "name": "tpj_review_journal",
+=======
+  "name": "tailwind_test",
+>>>>>>> develop
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
+<<<<<<< HEAD
     "@testing-library/jest-dom": "^6.8.0",
+=======
+    "@testing-library/jest-dom": "^6.7.0",
+>>>>>>> develop
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "react": "^19.1.1",
@@ -35,5 +43,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
+=======
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
+>>>>>>> develop
   }
 }
