@@ -10,7 +10,10 @@ git url: https://github.com/kanell0304/React_TeamProject.git <br>
 - git add .
 - git commit -m "msg"
 명령어로 로컬 저장소 만들기
-4. 아래 명령어를 참고해서 깃 허브 연결 -> git pull -> develop 브랜치를 가져오지 못한다면
+4. 깃 허브 연결
+- git remote add origin https://github.com/kanell0304/React_TeamProject.git
+5. 
+- git pull                                     - 원격 저장소에서 파일 가져오기 -> 만약 develop 브랜치를 가져오지 못한다면
 - git checkout -b develop origin/develop       - develop 브랜치 가져오기
 
 
