@@ -11,6 +11,8 @@ git commit -am 'msg'          - 스테이징 + 커밋(최초 커밋 불가) <br>
 
 git remote add origin https://github.com/kanell0304/React_TeamProject.git - 깃 허브 연결 <br>
 git branch                    - 브랜치 연결 확인 <br>
+브랜치가 main밖에없다면
+git checkout -b develop origin/develop - 원격 저장소의 branch develop을 가져옴
 
 git pull                      - 원격 저장소에서 초신 브랜치 가져오기 -> 이 작업 후 push 작업 <br>
 git switch 브랜치이름           - 브랜치 변경 <br>
