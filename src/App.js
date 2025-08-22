@@ -3,13 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SearchList from './component/SearchList';
 import AddList from './component/AddList';
 import EditList from './component/EditList';
+import Navibar from './component/Navibar';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <div>
-          <NaviBar />
+          {/* <Navibar /> */}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/searchList" element={<SearchList />} />
