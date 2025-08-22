@@ -76,6 +76,7 @@ const EditList = () => {
             setMovieList(savedList);
             //상세페이지 작성 후 연결 : useParam()  :id
             // const currentRv = savedList.find((getRv)=>parseInt(getRv.id)===parseInt(id))            
+            // if(currentRv) setReview(currentRv);
             console.log("렌더링리스트:",savedList);
         }, []);
 
