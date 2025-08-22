@@ -1,8 +1,8 @@
 조원: 
-이경준 - 리스트 전체표시, 리스트 상세보기
-함현준 - 리스트 수정
-한예원 - 리스트 검색
-임다빈 - 리스트 추가
+이경준 - 리스트 전체표시, 리스트 상세보기, CSS
+함현준 - 리스트 수정, CSS
+한예원 - 리스트 검색, CSS
+임다빈 - 리스트 추가, CSS
 
 Node.js version: v20.19.4 <br>
 Tailwind 설치 방법 notion: https://www.notion.so/TailwindCss-24f974c0f4ae809485aec53c77a72467 <br>
