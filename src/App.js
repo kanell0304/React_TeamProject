@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SearchList from './component/SearchList';
 import AddList from './component/AddList';
 import EditList from './component/EditList';
+import NaviBar from './component/Navibar';
 
 function App() {
   return (
