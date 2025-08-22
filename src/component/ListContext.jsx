@@ -19,19 +19,25 @@ const ListContext = ({children}) => {
             id : 1,
             title : "표본 게시글 제목1",
             content : "표본 게시글 제목1",
-            date : now
+            date : now,
+            score : 3,
+            category : "SF"
         },
         {
             id : 2,
             title : "표본 게시글 제목2",
             content : "표본 게시글 제목2",
-            date : now
+            date : now,
+            score : 2,
+            category : "호러"
         },
         {
             id : 3,
             title : "표본 게시글 제목3",
             content : "표본 게시글 제목3",
-            date : now
+            date : now,
+            score : 4,
+            category : "로맨스"
         }
     ]);
 
