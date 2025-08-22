@@ -20,7 +20,6 @@ const ListContext = ({children}) => {
             title : "표본 게시글 제목1",
             content : "표본 게시글 제목1",
             date : now,
-            score : 3,
             category : "SF"
         },
         {
@@ -28,7 +27,6 @@ const ListContext = ({children}) => {
             title : "표본 게시글 제목2",
             content : "표본 게시글 제목2",
             date : now,
-            score : 2,
             category : "호러"
         },
         {
@@ -36,7 +34,6 @@ const ListContext = ({children}) => {
             title : "표본 게시글 제목3",
             content : "표본 게시글 제목3",
             date : now,
-            score : 4,
             category : "로맨스"
         }
     ]);
