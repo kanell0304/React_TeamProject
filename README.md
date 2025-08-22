@@ -17,6 +17,9 @@ git url: https://github.com/kanell0304/React_TeamProject.git <br>
 6. git pull로 저장소에 있는 코드 가져오기
 - git pull -u origin main - 원격 저장소 'origin'의 'main' 브랜치를 풀하고 업스트림으로 설정
 * history관련 오류 발생 시 - git pull origin main --allow-unrelated-histories
+7. Router 사용을 위한 패키지 설치
+- npm install react-router-dom
+
 
 - git 명령어 모음 - ('br' 태그 제외)
 git init                      - 로컬 저장소 초기화 <br>
