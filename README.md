@@ -10,12 +10,13 @@ git url: https://github.com/kanell0304/React_TeamProject.git <br>
 - git init
 - git add .
 - git commit -m "msg"
-명령어로 로컬 저장소 만들기
-4. 이후 만든 임시 파일을 삭제 후 다시 커밋(아무것도 없던 상태로 되돌려서 커밋)
-5. 깃 허브 연결
-- git remote add origin https://github.com/kanell0304/React_TeamProject.git
-6. git pull로 저장소에 있는 코드 가져오기
-- git pull -u origin main - 원격 저장소 'origin'의 'main' 브랜치를 풀하고 업스트림으로 설정
+- echo "test1" > test.txt
+- rm test.txt
+- git add .
+- git commit -m "del test.txt"
+4. git remote add origin https://github.com/kanell0304/React_TeamProject.git
+5. git fetch
+6. git pull origin main
 * history관련 오류 발생 시 - git pull origin main --allow-unrelated-histories
 7. Router 사용을 위한 패키지 설치
 - npm install react-router-dom
