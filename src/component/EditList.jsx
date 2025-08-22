@@ -5,6 +5,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 //상세보기 -> 수정
 const EditList = () => {
+
+        // 파라미터에서 수정하고자 하는 게시글의 id를 추출하는 코드(바로 아래 코드)를 추가해뒀습니다. '//'를 풀고 사용하시면 됩니다. - 이경준
+        // const selectedMovieId = useParams(); // 수정하고자 하는 게시글의 id 추출 ex) selectedMovieId = {id : 1}, selectedMovieId.id = 1
+
         //////////////////////////test/////////////////////////////////////
         const today = new Date();
         const year = today.getFullYear();

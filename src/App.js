@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SearchList from './component/SearchList';
 import AddList from './component/AddList';
 import EditList from './component/EditList';
+import ListDetail from './component/ListDetail';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/searchList" element={<SearchList />} />
               <Route path="/addList" element={<AddList />} />
-              <Route path="/editList" element={<EditList />} />
+              <Route path="/editList/:id" element={<EditList />} />
+              <Route path="/listDetail/:id" element={<ListDetail />} />
             </Routes>
         </div>
       </BrowserRouter>
