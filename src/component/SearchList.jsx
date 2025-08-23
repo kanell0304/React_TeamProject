@@ -10,7 +10,7 @@ const SearchList = () => {
     const {movieList} = useContext(ListProvider);
     const [input,setInput] = useState('');
 
-    const moveDetail = (movieId) => {
+    const moveToDetail = (movieId) => {
         navigate(`/listDetail/${movieId}`);
     }
 
@@ -26,7 +26,7 @@ const SearchList = () => {
             movieList.map(ml=>(   
             ml.title.includes(input)?(
                 <div className="searchList" key={ml.id}
-                onClick={()=>moveDetail(ml.id)}>
+                onClick={()=>moveToDetail(ml.id)}>
                     <h3>{ml.title}</h3>
                     <div className="searchDetail"> {ml.category}</div>
                 </div>

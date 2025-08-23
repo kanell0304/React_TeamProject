@@ -12,6 +12,9 @@ const Navibar = () => {
                     <Link className="navLink" to="/searchList">검색</Link>
                 </li>
                 <li className="navItem">
+                    <Link className="navLink" to= "/categoryList">장르별</Link>
+                </li>
+                <li className="navItem">
                     <Link className="navLink" to="/addList">글 작성</Link>
                 </li>
             </nav>
