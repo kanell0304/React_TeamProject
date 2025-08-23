@@ -1,0 +1,22 @@
+.searchBar{
+    margin-top: 5rem;
+    width: 60%;
+    height: 2rem;
+    display: flex;
+    justify-self: center;
+}
+.searchList {
+    margin-top: 1rem;
+    width: 50%;
+
+    justify-self: center;
+    padding: 1rem;
+    border-bottom: 1px solid black;
+    }
+
+.searchDetail{
+    height: 1rem;
+    font-size: small;
+    margin-top: 2rem;
+    justify-self: right;
+}
