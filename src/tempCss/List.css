@@ -1,2 +1,2 @@
-.movieList{width: 100%; padding: 10px; display: flex; border: 1px solid black;}
+.movieList{min-width: 800px; width: 100%; padding: 10px; display: flex; border: 1px solid black;}
 .movieList div{width: 200px; text-align: center;}

@@ -6,26 +6,31 @@ import { useNavigate } from "react-router-dom";
 const List = () => {
 
     const navigate = useNavigate();
-
     const {movieList} = useContext(ListProvider);
+    const [movieList1, setMovieList1] = useState();
 
-    useEffect(() => {
-        localStorage.setItem("lists", JSON.stringify(movieList));
-    }, [])
-
-    const [movieList1] = useState(JSON.parse(localStorage.getItem("lists")));
-
-    const moveDetail = (movieId) => {
+    const moveToDetail = (movieId) => {
         navigate(`/listDetail/${movieId}`);
     }
 
+    // 임시 리스트 생성
+    const createTempList = () => {
+        localStorage.setItem("lists", JSON.stringify(movieList));
+        setMovieList1(JSON.parse(localStorage.getItem("lists")));
+    }
+
+    useEffect(() => {
+        setMovieList1(JSON.parse(localStorage.getItem("lists")));
+    }, []);
+
     return (
-        <div>
-            <div className="movieList" style={{backgroundColor : "#dee2e6"}}><div>번호</div><div>내용</div><div>작성일자</div></div>
+        <div style={{width : "50%", margin : "0px auto"}}>
+            <button onClick={createTempList}>임시 리스트 생성 및 초기화</button>
+            <div className="movieList" style={{backgroundColor : "#dee2e6"}}><div style={{width : "20%"}}>번호</div><div style={{width : "50%"}}>내용</div><div style={{width : "30%"}}>작성일자</div></div>
             {movieList1 && movieList1.map(movie => {
                 return (
-                    <div key={movie.id} className="movieList" onClick={() => moveDetail(movie.id)}>
-                        <div>{movie.id}</div><div>{movie.content}</div><div>{movie.date}</div>
+                    <div key={movie.id} className="movieList" onClick={() => moveToDetail(movie.id)}>
+                        <div style={{width : "20%"}}>{movie.id}</div><div style={{width : "50%"}}>{movie.content}</div><div style={{width : "30%"}}>{movie.date}</div>
                     </div>
                 )
             })}
