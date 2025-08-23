@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
+import "../tempCss/NaviBar.css"
 
 const Navibar = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/#">홈</Link>
+        <ul>
+            <nav className="navBar">
+                <li className="navItem">
+                    <Link className="navLink" to="/#">홈</Link>
                 </li>
-                <li>
-                    <Link to="/searchList">검색</Link>
+                <li className="navItem">
+                    <Link className="navLink" to="/searchList">검색</Link>
                 </li>
-                <li>
-                    <Link to="/addList">글 작성</Link>
+                <li className="navItem">
+                    <Link className="navLink" to="/addList">글 작성</Link>
                 </li>
-            </ul>
-        </nav>
+            </nav>
+        </ul>
     );
 };
 

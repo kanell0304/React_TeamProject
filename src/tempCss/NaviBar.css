@@ -1,0 +1,15 @@
+.navBar{
+    display:flex;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid black;
+}
+.navItem{
+    padding-left: 5rem;
+    list-style-type: none;
+
+}
+.navLink{
+    text-decoration: none;
+    color:black;
+}
