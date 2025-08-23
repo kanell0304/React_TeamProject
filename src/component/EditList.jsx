@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ListProvider } from "./ListContext";
 import { useNavigate, useParams } from "react-router-dom";
-
+import "../tempCss/EditList.css"
 
 //상세보기 -> 수정
 const EditList = () => {
@@ -49,12 +49,21 @@ const EditList = () => {
         
     return (
         <div>
-            <h2>리뷰글 수정</h2>
-            <form onSubmit={onsubmit2}>
-                <input value={review.title} onChange={e=>setReview({...review,title:e.target.value})} type="text" /><br/>
-                <textarea value={review.content} onChange={e=>setReview({...review,content:e.target.value})}/><br/>           
-                <button type="submit">수정</button>
-            </form>            
+            {/* 장르 태그 추가예정 */}
+            <div className="container">
+                <div className="inner-container">
+                <h2 className="page-edit">리뷰글 수정</h2>
+                
+                    <form className="form-box" onSubmit={onsubmit2}>
+                        <div>
+                        <input className="form-title" value={review.title} onChange={e=>setReview({...review,title:e.target.value})} type="text" />
+                        </div>
+                        <textarea className="form-content" value={review.content} onChange={e=>setReview({...review,content:e.target.value})}/><br/>           
+                        <button className="button-edit" type="submit">수정</button>
+                    </form>            
+                
+                </div>
+            </div>
         </div>
     );
 };
