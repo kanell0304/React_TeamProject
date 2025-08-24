@@ -16,6 +16,6 @@ export const getNow = ()=>{
         const minutes = today.getMinutes().toString().padStart(2, "0");
         const seconds = today.getSeconds().toString().padStart(2, "0");
         
-        const now = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+        const now = `${year}.${month}.${date} ${hours}:${minutes}:${seconds}`;
         return now;
 }
