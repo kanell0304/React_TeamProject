@@ -3,6 +3,7 @@ import { ListProvider } from "./ListContext";
 import { useNavigate, useParams } from "react-router-dom";
 import "../tempCss/EditList.css"
 import { getNow } from "../customHook/useHooks"; //수정시간 갱신용
+import Navibar from "./Navibar";
 
 //상세보기 -> 수정
 const EditList = () => {        
@@ -13,8 +14,10 @@ const EditList = () => {
         const focusRef = useRef();
         
         const {movieList, setMovieList, categoryList, setCategoryList} = useContext(ListProvider);
-        const [review, setReview] = useState({title:'',content:'',category:''});        
-        
+        const [review, setReview] = useState({title:'',content:'',category:''});
+        //genre option 중복방지용(수정 선택된 장르(review.category) 제외한 배열)
+        const restCategory = categoryList.filter((genre)=>genre.name !== review.category);
+
         const onsubmit2 = (e)=>{
             e.preventDefault();
             const now = getNow();            
@@ -40,36 +43,37 @@ const EditList = () => {
         
         useEffect(()=>{
             const savedList = JSON.parse(localStorage.getItem("lists")) || [];
-            setMovieList(savedList);   
-            
+            setMovieList(savedList);            
             //수정폼에 기존내용 입력
             const currentRv = savedList.find((getRv)=>parseInt(getRv.id) === parseInt(selectedMovieId.id));
             if(currentRv) setReview(currentRv);
             focusRef.current.focus();
             
-        }, []);         
+        }, []);
         
     return (
-        <div>            
+        <div>
+            <Navibar />
             <div className="container">
                 <div className="inner-container">
                     <h2 className="page-edit">리뷰글 수정</h2>
                     <span>{review.date}</span>
-                    <select onChange={changeGenre} className="select-genre">
                         {/* 장르 변경 옵션 */}
-                        {categoryList.map((genre)=>(
+                    {review.id &&
+                    <select value={review.category} onChange={changeGenre} className="select-genre">
+                        <option value={review.category}>{review.category}</option>
+                        {restCategory.map((genre)=>(
                             <option key={genre.id} value={genre.name}>
                                 {genre.name}
-                            </option>))}                    
-                    </select>                
+                            </option>))}
+                    </select>}
                     <form className="form-box" onSubmit={onsubmit2}>
                         <div>
                         <input className="form-title" ref={focusRef} value={review.title} onChange={e=>setReview({...review,title:e.target.value})} type="text" />
                         </div>
                         <textarea className="form-content" value={review.content} onChange={e=>setReview({...review,content:e.target.value})}/><br/>           
                         <button className="button-edit" type="submit">수정</button>
-                    </form>           
-                
+                    </form>
                 </div>
             </div>
         </div>
