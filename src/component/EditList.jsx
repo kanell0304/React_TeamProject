@@ -12,17 +12,25 @@ const EditList = () => {
         const navigate = useNavigate();
         const focusRef = useRef();
         
-        const {movieList, setMovieList} = useContext(ListProvider);
-        const [review, setReview] = useState({title:'',content:''});
+        const {movieList, setMovieList, categoryList, setCategoryList} = useContext(ListProvider);
+        const [review, setReview] = useState({title:'',content:'',category:''});        
         
         const onsubmit2 = (e)=>{
             e.preventDefault();
-            const now = getNow();
+            const now = getNow();            
             const editedReview = movieList.map((prev)=>(
-                prev.id === review.id ? {...prev, ...review, date:now} : prev ));
+                prev.id === review.id ? {
+                    ...prev, 
+                    ...review,
+                    date:now
+                    } : prev ));                    
                 setMovieList(editedReview);
                 navigate('/');                      
-        }
+        }      
+        //장르 수정
+        const changeGenre = (e)=>{
+            setReview({...review,category:e.target.value});            
+        }  
 
         //localStorage Context 전역관리용 
         useEffect(()=>{
@@ -32,26 +40,35 @@ const EditList = () => {
         
         useEffect(()=>{
             const savedList = JSON.parse(localStorage.getItem("lists")) || [];
-            setMovieList(savedList);     
+            setMovieList(savedList);   
+            
             //수정폼에 기존내용 입력
             const currentRv = savedList.find((getRv)=>parseInt(getRv.id) === parseInt(selectedMovieId.id));
             if(currentRv) setReview(currentRv);
             focusRef.current.focus();
-        }, []);       
+            
+        }, []);         
         
     return (
-        <div>
-            {/* 장르 태그 추가예정 */}
+        <div>            
             <div className="container">
                 <div className="inner-container">
-                    <h2 className="page-edit">리뷰글 수정</h2>                
+                    <h2 className="page-edit">리뷰글 수정</h2>
+                    <span>{review.date}</span>
+                    <select onChange={changeGenre} className="select-genre">
+                        {/* 장르 변경 옵션 */}
+                        {categoryList.map((genre)=>(
+                            <option key={genre.id} value={genre.name}>
+                                {genre.name}
+                            </option>))}                    
+                    </select>                
                     <form className="form-box" onSubmit={onsubmit2}>
                         <div>
-                        <input  className="form-title" ref={focusRef} value={review.title} onChange={e=>setReview({...review,title:e.target.value})} type="text" />
+                        <input className="form-title" ref={focusRef} value={review.title} onChange={e=>setReview({...review,title:e.target.value})} type="text" />
                         </div>
                         <textarea className="form-content" value={review.content} onChange={e=>setReview({...review,content:e.target.value})}/><br/>           
                         <button className="button-edit" type="submit">수정</button>
-                    </form>            
+                    </form>           
                 
                 </div>
             </div>
