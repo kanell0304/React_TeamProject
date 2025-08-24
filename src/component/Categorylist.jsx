@@ -25,9 +25,16 @@ const CategoryList = () => {
             <button className="cateBtn"key ={cl.id} onClick={()=>setCategory(cl.name)}>{cl.name}</button>
         ))}
         </div>
-        {movieList.find(ml=>ml.category === category)?'':(
+        {category==='' ?(
+            <div className="cateResult">
+                원하는 장르를 선택해주세요
+            </div>
+        ):
+        (
+            <>
+             {movieList.find(ml=>ml.category === category)?'':(
             <div className="cateResult">등록된 게시물이 없습니다.</div>)}
-        {movieList.map(ml=>(
+                {movieList.map(ml=>(
                     ml.category === category ?(
                         <div key={ml.id}
                          onClick={()=>moveToDetail(ml.id)} className="cateResult">
@@ -35,6 +42,9 @@ const CategoryList = () => {
                         </div>
                     ):''
         ))}
+            </>
+        )
+        }
         </>
     );
 };
