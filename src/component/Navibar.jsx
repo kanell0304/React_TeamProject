@@ -17,6 +17,9 @@ const Navibar = () => {
                 <li className="navItem">
                     <Link className="navLink" to="/addList">글 작성</Link>
                 </li>
+                <li className="navItem">
+                    <Link className="navLink" to="/categoryCRD">카테고리 관리</Link>
+                </li>
             </nav>
         </ul>
     );
