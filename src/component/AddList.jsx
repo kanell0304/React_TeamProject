@@ -51,7 +51,7 @@ function MovieReview({onAddReview}) {
                 <option value="SF">SF</option>
                 <option value="Drama">Drama</option>
               </select>
-            <input 
+            <input s
             type="text"
             placeholder="제목을 입력하세요."
             value={title}
