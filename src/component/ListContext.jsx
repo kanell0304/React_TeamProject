@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import { getNow } from "../customHook/useHooks";
+import { getNow } from "../customHook/useHooks"; // customHook 이용
 
 export const ListProvider = createContext();
 
