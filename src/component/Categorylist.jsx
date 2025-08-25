@@ -2,7 +2,7 @@ import { useContext, useState} from "react";
 import { ListProvider } from "./ListContext";
 import "../tempCss/CategoryList.css"
 import { useNavigate } from "react-router-dom";
-import Navibar from "./Navibar";
+// import Navibar from "./Navibar";
 
 const CategoryList = () => {
 

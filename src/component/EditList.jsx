@@ -3,7 +3,7 @@ import { ListProvider } from "./ListContext";
 import { useNavigate, useParams } from "react-router-dom";
 import "../tempCss/EditList.css"
 import { getNow } from "../customHook/useHooks"; //수정시간 갱신용
-import Navibar from "./Navibar";
+// import Navibar from "./Navibar";
 
 //상세보기 -> 수정
 const EditList = () => {        

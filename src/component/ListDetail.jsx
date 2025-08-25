@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navibar from "./Navibar";
+// import Navibar from "./Navibar";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ListDetail = () => {

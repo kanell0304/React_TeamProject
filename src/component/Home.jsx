@@ -1,4 +1,4 @@
-import Navibar from "./Navibar";
+// import Navibar from "./Navibar";
 import List from "./List"
 
 const Home = () => {

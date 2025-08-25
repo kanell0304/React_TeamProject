@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ListProvider } from "./ListContext";
-import Navibar from "./Navibar";
+// import Navibar from "./Navibar";
 import { useNavigate } from "react-router-dom";
 import '../tempCss/SearchList.css' 
 
