@@ -30,7 +30,7 @@ const ListDetail = () => {
 
     return (
         <div>
-            <Navibar />
+            {/* <Navibar /> */}
             <h1 style={{textAlign : "center"}}>상세보기</h1>
             <div style={{padding : "50px 200px"}}>
                 <div style={{display : "flex", justifyContent: "space-between"}}>

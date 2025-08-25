@@ -5,13 +5,14 @@ import AddList from './component/AddList';
 import EditList from './component/EditList';
 import ListDetail from './component/ListDetail';
 import CategoryList from './component/Categorylist';
+import Navibar from './component/Navibar';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <div>
-          {/* <Navibar /> */}
+          <Navibar />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/searchList" element={<SearchList />} />

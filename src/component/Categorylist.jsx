@@ -17,7 +17,7 @@ const CategoryList = () => {
     return (
         <>
          <div>
-            <Navibar />
+            {/* <Navibar /> */}
             <h1 style={{textAlign : "center"}}>CATEGORY</h1>
         </div>
         <div className="cate">

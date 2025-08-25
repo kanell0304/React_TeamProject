@@ -53,7 +53,7 @@ const EditList = () => {
         
     return (
         <div>
-            <Navibar />
+            {/* <Navibar /> */}
             <div className="container">
                 <div className="inner-container">
                     <h2 className="page-edit">리뷰글 수정</h2>

@@ -17,7 +17,7 @@ const SearchList = () => {
     return (
         <>
         <div>
-            <Navibar />
+            {/* <Navibar /> */}
             <h1 style={{textAlign : "center"}}>SEARCH</h1>
         </div>
         <div>
