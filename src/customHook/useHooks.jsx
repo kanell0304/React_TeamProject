@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 
 const useHooks = () => {
 
@@ -6,9 +7,9 @@ const useHooks = () => {
 
 export default useHooks;
 
-//EditList 날짜,시간 갱신용 헬퍼함수 
-export const getNow = ()=>{
-    const today = new Date();
+//날짜 커스텀훅
+export const useDate = ()=>useMemo(()=>{
+        const today = new Date();
         const year = today.getFullYear();
         const month = today.getMonth() + 1;
         const date = today.getDate();
@@ -18,4 +19,4 @@ export const getNow = ()=>{
         
         const now = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
         return now;
-}
+},[]);
