@@ -3,9 +3,8 @@ import { ListProvider } from "./ListContext";
 import { useNavigate, useParams } from "react-router-dom";
 import "../tempCss/EditList.css"
 import { useDate } from "../customHook/useHooks"; //수정시간 갱신용
-// import Navibar from "./Navibar";
 
-//상세보기 -> 수정
+
 const EditList = () => {        
                 
         const selectedMovieId = useParams(); 
@@ -28,17 +27,22 @@ const EditList = () => {
 
         const updateReview = (e)=>{
             e.preventDefault();
+            if(!review.title || !review.content){
+                return alert('내용 입력');                
+            }
+            else{
             const savedList = JSON.parse(localStorage.getItem("lists")) || [];
-            // const now = getNow();            
+                       
             const editedReview = savedList.map((prev)=>(
                 prev.id === review.id ? {
                     ...prev, 
                     ...review,
                     date:now
-                    } : prev ));
+                    } : prev ));            
 
             localStorage.setItem("lists",JSON.stringify(editedReview));
-            navigate('/');                      
+            
+            navigate('/');                      }
         }      
        
     return (
