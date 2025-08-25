@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Navibar from "./Navibar";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ListDetail = () => {
@@ -30,7 +29,6 @@ const ListDetail = () => {
 
     return (
         <div>
-            {/* <Navibar /> */}
             <h1 style={{textAlign : "center"}}>상세보기</h1>
             <div style={{padding : "50px 200px"}}>
                 <div style={{display : "flex", justifyContent: "space-between"}}>
@@ -51,6 +49,26 @@ const ListDetail = () => {
                     <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={() => setIsDeleteModal(false)}>취소</button>
                 </div>
             }
+            {/* <h1 className="text-center text-3xl font-bold my-4">상세보기</h1>
+            <div className="px-48 py-12">
+                <div className="flex justify-between">
+                    <div>장르: {selectedMovie.category}</div>
+                    <div>등록일: {selectedMovie.date}</div>
+                </div> 
+                <h2 className="mt-12 text-2xl font-semibold">{selectedMovie.title}</h2>
+                <div className="mt-12 border border-gray-300 p-8 h-48">{selectedMovie.content}</div>
+            </div>
+            <div className="text-center">
+                <button onClick={moveToEditList} className="mx-12 px-8 py-2.5 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">수정</button>
+                <button onClick={isDelete} className="mx-12 px-8 py-2.5 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">삭제</button>
+            </div>
+            {isDeleteModal && 
+                <div className="text-center border border-black p-8 w-[500px] bg-gray-300 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 rounded-lg shadow-lg">
+                    <h2 className="text-lg font-semibold mb-6">해당 게시글을 삭제하시겠습니까?</h2>
+                    <button className="mx-5 my-2.5 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors" onClick={deleteList}>확인</button>
+                    <button className="mx-5 my-2.5 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors" onClick={() => setIsDeleteModal(false)}>취소</button>
+                </div>
+            } */}
         </div>
     );
 };

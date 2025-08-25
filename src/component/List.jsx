@@ -34,6 +34,23 @@ const List = () => {
                 )
             })}
         </div>
+        // <div className="w-1/2 mx-auto">
+        //     <button onClick={createTempList}>임시 리스트 생성 및 초기화</button>
+        //     <div className="w-full min-w-[800px] p-2.5 flex border border-black bg-gray-300">
+        //         <div className="w-1/5 text-center">번호</div>
+        //         <div className="w-1/2 text-center">내용</div>
+        //         <div className="w-3/10 text-center">작성일자</div>
+        //     </div>
+        //     {movieList1 && movieList1.map(movie => {
+        //         return (
+        //             <div key={movie.id} onClick={() => moveToDetail(movie.id)} className="min-w-[800px] w-full p-2.5 flex border border-black cursor-pointer hover:bg-gray-50">
+        //                 <div className="w-1/5 text-center">{movie.id}</div>
+        //                 <div className="w-1/2 text-center">{movie.content}</div>
+        //                 <div className="w-3/10 text-center">{movie.date}</div>
+        //             </div>
+        //         )
+        //     })}
+        // </div>
     );
 };
 
