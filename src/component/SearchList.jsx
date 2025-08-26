@@ -7,7 +7,7 @@ import '../tempCss/SearchList.css'
 const SearchList = () => {
     const navigate = useNavigate();
 
-    const {movieList} = useContext(ListProvider);
+    const movieList = JSON.parse(localStorage.getItem("lists"));
     const [input,setInput] = useState('');
 
     const moveToDetail = (movieId) => {
