@@ -12,7 +12,7 @@ const EditList = () => {
         const focusRef = useRef();
         const now = useDate();
         
-        const {categoryList} = useContext(ListProvider);
+        const {movieList,setMovieList,categoryList} = useContext(ListProvider);
         const [review, setReview] = useState({title:'',content:'',category:''});
         
         const restCategory = categoryList.filter((genre)=>genre.name !== review.category);
@@ -41,9 +41,13 @@ const EditList = () => {
                     } : prev ));            
 
             localStorage.setItem("lists",JSON.stringify(editedReview));
-            
-            navigate('/');                      }
-        }      
+            setMovieList(editedReview);
+            navigate('/');                      
+            }
+        } 
+        useEffect(()=>{
+            console.log("editpage:",movieList);
+        },[movieList]);
        
     return (
         <div>
