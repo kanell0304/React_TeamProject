@@ -1,3 +1,26 @@
 .categoryManage{
-    
+    display: flex;
+    justify-self: center;
+    padding :10px;
+}
+
+.cateList{
+    height: 40px;
+    padding:10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.cateList:hover{
+    border: 1px solid black;
+    background-color: rgb(172, 187, 207);
+}
+
+.cateListBtn{
+    justify-self: right;
+    margin-bottom: 10px;
+}
+.cateListBtn button{
+    background-color: white;
+    padding: 2px;
 }

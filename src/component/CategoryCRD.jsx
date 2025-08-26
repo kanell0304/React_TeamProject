@@ -42,14 +42,18 @@ const CategoryCRD = () => {
 
     return (
         <div className="categoryManage">
-            <h1>카테고리 목록</h1>
+            <div>
+                <h1>카테고리 목록</h1>
         {categoryList && categoryList.map(category => {
             return (
-                <div onMouseEnter={() => onMouse(category)}  onMouseLeave={leaveMouse}>                
+                <div className='cateList' onMouseEnter={() => onMouse(category)}  onMouseLeave={leaveMouse}>                
                     <span key={category.id}>{category.name}</span>
                     {visibleDelBtn && // 마우스가 올려졌는지
                         selectedCategory.id === category.id ? // 마우스가 올라간 카테고리가 현재 카테고리 목록의 카테고리와 id가 일치하는지
-                        <button onClick={() => deleteCategory(category)}>삭제</button> : // 일치한다면 삭제버튼이 보임
+                        <div className="cateListBtn">
+                        <button  onClick={() => deleteCategory(category)}>삭제</button>
+                        </div>
+                         : // 일치한다면 삭제버튼이 보임
                         <div></div> // 아니라면 아무것도 안보임
                     }
                 </div>
@@ -59,6 +63,7 @@ const CategoryCRD = () => {
         <h2>카테고리 생성</h2>
         <input value={inputCategory} onChange={(e) => setInputCategory(e.target.value)} placeholder="카테고리 이름 입력" />
         <button onClick={addCategory} >추가</button>
+            </div>
         </div>
     )
 }
