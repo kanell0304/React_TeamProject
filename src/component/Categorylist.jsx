@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 const CategoryList = () => {
 
     const navigate = useNavigate();
-    const {movieList,categoryList} = useContext(ListProvider);
+    const {categoryList} = useContext(ListProvider);
+    const movieList = JSON.parse(localStorage.getItem("lists"));
     const [category, setCategory] = useState('');
 
     const moveToDetail = (movieId) => {

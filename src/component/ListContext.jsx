@@ -1,11 +1,11 @@
 import { useState, createContext } from "react";
-import { getNow } from "../customHook/useHooks"; // customHook 이용
+import { useDate } from "../customHook/useHooks";
 
 export const ListProvider = createContext();
 
 const ListContext = ({children}) => {
 
-    const now = getNow();
+    const now = useDate();
 
     const [movieList, setMovieList] = useState([
         {

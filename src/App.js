@@ -6,6 +6,7 @@ import EditList from './component/EditList';
 import ListDetail from './component/ListDetail';
 import CategoryList from './component/Categorylist';
 import Navibar from './component/Navibar';
+import CategoryCRD from './component/CategoryCRD';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/addList" element={<AddList />} />
               <Route path="/editList/:id" element={<EditList />} />
               <Route path="/listDetail/:id" element={<ListDetail />} />
+              <Route path="/categoryCRD" element={<CategoryCRD />} />
             </Routes>
         </div>
       </BrowserRouter>
