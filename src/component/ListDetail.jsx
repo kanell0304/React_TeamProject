@@ -29,7 +29,7 @@ const ListDetail = () => {
 
     return (
         <div>
-            <h1 style={{textAlign : "center"}}>상세보기</h1>
+            {/* <h1 style={{textAlign : "center"}}>상세보기</h1>
             <div style={{padding : "50px 200px"}}>
                 <div style={{display : "flex", justifyContent: "space-between"}}>
                     <div>장르: {selectedMovie.category}</div>
@@ -48,8 +48,8 @@ const ListDetail = () => {
                     <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={deleteList}>확인</button>
                     <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={() => setIsDeleteModal(false)}>취소</button>
                 </div>
-            }
-            {/* <h1 className="text-center text-3xl font-bold my-4">상세보기</h1>
+            } */}
+            <h1 className="text-center text-3xl font-bold my-4">상세보기</h1>
             <div className="px-48 py-12">
                 <div className="flex justify-between">
                     <div>장르: {selectedMovie.category}</div>
@@ -68,7 +68,7 @@ const ListDetail = () => {
                     <button className="mx-5 my-2.5 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors" onClick={deleteList}>확인</button>
                     <button className="mx-5 my-2.5 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors" onClick={() => setIsDeleteModal(false)}>취소</button>
                 </div>
-            } */}
+            }
         </div>
     );
 };
