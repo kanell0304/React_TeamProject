@@ -12,18 +12,19 @@ const EditList = () => {
         const focusRef = useRef();
         const now = useDate();
         
-        const {movieList,setMovieList,categoryList} = useContext(ListProvider);
+        const {categoryList} = useContext(ListProvider);
         const [review, setReview] = useState({title:'',content:'',category:''});
         
         const restCategory = categoryList.filter((genre)=>genre.name !== review.category);
 
         useEffect(()=>{
-            const savedList = JSON.parse(localStorage.getItem("lists")) || [];                        
+            const savedList = JSON.parse(localStorage.getItem("lists")) || []; 
+
             const currentRv = savedList.find((getRv)=>parseInt(getRv.id) === parseInt(selectedMovieId.id));
             if(currentRv) setReview(currentRv);
             focusRef.current.focus();
             
-        }, [selectedMovieId]);
+        }, [selectedMovieId]);  
 
         const updateReview = (e)=>{
             e.preventDefault();
@@ -41,13 +42,10 @@ const EditList = () => {
                     } : prev ));            
 
             localStorage.setItem("lists",JSON.stringify(editedReview));
-            setMovieList(editedReview);
+            
             navigate('/');                      
             }
-        } 
-        useEffect(()=>{
-            console.log("editpage:",movieList);
-        },[movieList]);
+        }        
        
     return (
         <div>
