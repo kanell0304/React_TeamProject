@@ -43,7 +43,7 @@ const ListDetail = () => {
                 <button onClick={isDelete} style={{margin : "0px 50px", padding : "10px 30px"}}>삭제</button>
             </div>
             {isDeleteModal && 
-                <div style={{textAlign : "center", border : "1px solid black", padding : "30px", width : "500px", backgroundColor : "#dee2e6", position : "fixed", top : "50%", left : "50%", transform : "translate(-50%, -50%)"}}>
+                <div style={{textAlign : "center", border : "1px solid black", padding : "30px", width : "500px", backgroundColor : "rgba(172, 187, 207, 0.4)", position : "fixed", top : "50%", left : "50%", transform : "translate(-50%, -50%)"}}>
                     <h2>해당 게시글을 삭제하시겠습니까?</h2>
                     <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={deleteList}>확인</button>
                     <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={() => setIsDeleteModal(false)}>취소</button>
