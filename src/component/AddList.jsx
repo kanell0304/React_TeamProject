@@ -1,6 +1,6 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ListProvider } from "./ListContext";
+import { getNow } from "../customHook/useHooks";
 
 
 function MovieReview({onAddReview}) {
@@ -8,31 +8,47 @@ function MovieReview({onAddReview}) {
     const [content, setContent] = useState("");
     const [category, setCategory] = useState("Horror");
     const navigate = useNavigate();
+    const [isRegist, setIsRegist] = useState(false);
+    const date = getNow();
     
-    const { movieList, setMovieList } = useContext(ListProvider);
+    const [movieList, setMovieList] = useState(() => {
+    const saved = localStorage.getItem("lists");
+    return saved ? JSON.parse(saved) : [];
+    });
+
     const onSubmitReview = (e) => {
-      e.preventDefault();
+        e.preventDefault();
 
-    if (!title || !content) {
-        return alert("제목과 내용을 입력하세요!");
-    }
+        if (!title || !content) {
+            return alert("제목과 내용을 입력하세요!");
+        }
 
-    const newReview = {
-      id: Date.now(),
-      title,
-      category,
-      content,
+        const maxId = movieList.length > 0 ? Math.max(...movieList.map((m) => m.id)) : 0;
+
+        const newReview = {
+        id: maxId + 1,
+        title,
+        category,
+        date,
+        content,
     };
 
-    setMovieList([...movieList, newReview]);
-    alert("리뷰가 등록 되었습니다.");
+        setMovieList([...movieList, newReview]);
+        alert("리뷰가 등록 되었습니다.");
 
-    setTitle("");
-    setCategory("Horror");
-    setContent("");
+        setTitle("");
+        setCategory("Horror");
+        setContent("");
 
-    navigate("/Category");
+        navigate("/");
+        setIsRegist(true);
     };
+
+    useEffect(() => {
+        localStorage.setItem("lists", JSON.stringify(movieList));
+        console.log("로컬 등록");
+        setIsRegist(false);
+    }, [isRegist])
 
 
 
