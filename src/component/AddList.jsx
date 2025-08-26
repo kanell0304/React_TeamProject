@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDate } from "../customHook/useHooks";
+import { ListProvider } from "./ListContext";
 
 
 function MovieReview({onAddReview}) {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const {categoryList} = useContext(ListProvider);
     const [category, setCategory] = useState("Horror");
     const navigate = useNavigate();
     const [isRegist, setIsRegist] = useState(false);
@@ -60,14 +62,13 @@ function MovieReview({onAddReview}) {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
               style={{ width: '130px', height: "25px", padding: '3px', marginBottom: "10px", float: 'right' }}>
-                <option value="Horror">Horror</option>
-                <option value="Romance">Romance</option>
-                <option value="Action">Action</option>
-                <option value="Comedy">Comedy</option>
-                <option value="SF">SF</option>
-                <option value="Drama">Drama</option>
+                {categoryList && categoryList.map(categoryLi => {
+                    return (
+                        <option key={categoryLi.id} value={categoryLi.name}>{categoryLi.name}</option>
+                    )
+                })}
               </select>
-            <input s
+            <input 
             type="text"
             placeholder="제목을 입력하세요."
             value={title}
