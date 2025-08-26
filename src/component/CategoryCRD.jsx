@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { ListProvider } from "./ListContext";
+import { useNavigate } from "react-router-dom";
+import '../tempCss/CategoryCRD.css';
 
 const CategoryCRD = () => {
 
@@ -7,6 +9,7 @@ const CategoryCRD = () => {
     const [visibleDelBtn, setVisibleDelBtn] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [inputCategory, setInputCategory] = useState();
+    const navigate = useNavigate();
 
     // 카테고리에 마우스를 올려놨을때
     const onMouse = (category) => {
@@ -30,8 +33,15 @@ const CategoryCRD = () => {
         }
     }
 
+    //category 추가
+    const addCategory = ()=>{
+        categoryList.push({id:Date.now(),name : inputCategory});
+        setCategoryList(categoryList);
+        navigate('/');  
+    }
+
     return (
-        <div>
+        <div className="categoryManage">
             <h1>카테고리 목록</h1>
         {categoryList && categoryList.map(category => {
             return (
@@ -48,7 +58,7 @@ const CategoryCRD = () => {
         <hr/>
         <h2>카테고리 생성</h2>
         <input value={inputCategory} onChange={(e) => setInputCategory(e.target.value)} placeholder="카테고리 이름 입력" />
-        <button >추가</button>
+        <button onClick={addCategory} >추가</button>
         </div>
     )
 }
