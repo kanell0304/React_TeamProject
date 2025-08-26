@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getNow } from "../customHook/useHooks";
+import { useDate } from "../customHook/useHooks";
 
 
 function MovieReview({onAddReview}) {
@@ -9,7 +9,7 @@ function MovieReview({onAddReview}) {
     const [category, setCategory] = useState("Horror");
     const navigate = useNavigate();
     const [isRegist, setIsRegist] = useState(false);
-    const date = getNow();
+    const date = useDate();
     
     const [movieList, setMovieList] = useState(() => {
     const saved = localStorage.getItem("lists");
@@ -26,12 +26,12 @@ function MovieReview({onAddReview}) {
         const maxId = movieList.length > 0 ? Math.max(...movieList.map((m) => m.id)) : 0;
 
         const newReview = {
-        id: maxId + 1,
-        title,
-        category,
-        date,
-        content,
-    };
+            id: maxId + 1,
+            title,
+            category,
+            date,
+            content,
+        };
 
         setMovieList([...movieList, newReview]);
         alert("리뷰가 등록 되었습니다.");
