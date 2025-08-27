@@ -52,8 +52,6 @@ function MovieReview({onAddReview}) {
         setIsRegist(false);
     }, [isRegist])
 
-
-
     return (
         <div style={{ maxWidth: "700px", margin: "0 auto", padding: "20px" }}>
             <h2 style={{ textAlign: "center" }}>영화 리뷰 작성</h2>
@@ -84,8 +82,6 @@ function MovieReview({onAddReview}) {
                 style={{ width: '70px', height: "40px", padding: "10px 15px", float: 'right' }}>등록</button>
             </form>
         </div>
-
-
     );
 };
 
