@@ -15,14 +15,14 @@ const CategoryList = () => {
     }
 
     return (
-        <>
+        <div className="font-mono">
          <div>
             {/* <Navibar /> */}
             <div className="text-center text-3xl mt-6">CATEGORY</div>
         </div>
         <div className="flex justify-self-center">
         {categoryList.map(cl=>(
-            <button className="w-28 text-sm mt-10 border border-black m-4 pt-1 pb-1 hover:bg-pink-300 focus:bg-orange-400"key ={cl.id} onClick={()=>setCategory(cl.name)}>{cl.name}</button>
+            <button className="w-24 rounded-lg text-sm mt-10 border border-black m-4 pt-1 pb-1 hover:bg-hover_color focus:bg-hover_color"key ={cl.id} onClick={()=>setCategory(cl.name)}>{cl.name}</button>
         ))}
         </div>
         {category==='' ?(
@@ -45,7 +45,7 @@ const CategoryList = () => {
             </>
         )
         }
-        </>
+        </div>
     );
 };
 

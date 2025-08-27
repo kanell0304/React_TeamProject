@@ -42,18 +42,20 @@ const CategoryCRD = () => {
     }
 
     return (
+        <div className="font-mono">
+            <div className="text-center text-3xl mt-6">CATEGORY MANAGE</div>
         <div className="flex justify-center">
             <div className="flex justify-items-center p-10 mr-20">
                 <div>
-                    <div className="text-center text-3xl mb-6">카테고리 목록</div>
+                    <div className="text-center text-2xl mb-6">LIST</div>
         {categoryList && categoryList.map(category => {
             return (
-                <div className='w-40 h-16 p-3 ml-5 mr-5 hover:bg-slate-400 hover:border hover:border-black' onMouseEnter={() => onMouse(category)}  onMouseLeave={leaveMouse}>                
+                <div className='rounded-md w-52 h-16 p-2 ml-5 mr-5 hover:bg-hover_color hover:bg-opacity-50 hover:border hover:border-gray-400' onMouseEnter={() => onMouse(category)}  onMouseLeave={leaveMouse}>                
                     <span className="text-sm" key={category.id}>{category.name}</span>
                     {visibleDelBtn && // 마우스가 올려졌는지
                         selectedCategory.id === category.id ? // 마우스가 올라간 카테고리가 현재 카테고리 목록의 카테고리와 id가 일치하는지
-                        <div className="justify-self-end text-xs ">
-                        <button className="bg-white pl-2 pr-2 " onClick={() => deleteCategory(category)}>삭제</button>
+                        <div className="justify-self-end text-xs">
+                        <button className="bg-white pl-2 pr-2 pb-1 pt-1 rounded-md border border-gray-400 hover:border-gray-500 hover:bg-gray-200" onClick={() => deleteCategory(category)}>삭제</button>
                         </div>
                          : // 일치한다면 삭제버튼이 보임
                         <div></div> // 아니라면 아무것도 안보임
@@ -63,10 +65,15 @@ const CategoryCRD = () => {
         })}</div>
          </div>
          <div>
-            <div className="text-center text-3xl  mt-10 mb-6 ">카테고리 생성</div>
-            <input className='text-sm h-8 ml-7 border border-black p-3' value={inputCategory} onChange={(e) => setInputCategory(e.target.value)} placeholder="카테고리 이름 입력" />
-            <button className='ml-5 hover:bg-slate-400 pr-3 pl-3 p-2 border border-black text-xs' onClick={addCategory} >추가</button>
+            <div className="text-center text-2xl mt-10 mb-6">ADD</div>
+            <input className='text-sm h-8 ml-7 border border-main_color focus:ring focus:ring-hover_color
+            p-3 rounded-md outline-none' value={inputCategory} onChange={(e) => setInputCategory(e.target.value)} placeholder="카테고리 이름 입력" />
+            <button className='ml-5 pr-3 pl-3 p-2 rounded-md
+            border-2 border-gray-100 hover:bg-hover_color 
+            text-gray-700 font-semibold bg-gray-200 text-xs' 
+            onClick={addCategory} >추가</button>
          </div>
+        </div>
         </div>
     )
 }

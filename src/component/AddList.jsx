@@ -23,7 +23,7 @@ function MovieReview({ onAddReview }) {
     if (!names.includes(category)) {
       setCategory(names[0]); 
     }
-  }, [categoryList]);
+  }, [category,categoryList]);
 
   useEffect(() => {
     localStorage.setItem("lists", JSON.stringify(movieList));
@@ -56,38 +56,44 @@ function MovieReview({ onAddReview }) {
   };
 
   return (
-    <div className="max-w-2x1 mx-auto p-8">
-      <h2 className="text-4xl font-bold text-center mb-8">영화 리뷰 작성</h2>
+    <div className="flex justify-self-center font-mono">
+      <div>
+        <div className="text-center text-3xl">WRITE MOVIE REVIEW</div>
 
-      <form onSubmit={onSubmitReview} className="space-y-4">
+      <form onSubmit={onSubmitReview} className="mt-12">
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="block w-40 ml-auto p-0.5 border border-gray-500 rounded-md text-sm focus:outline-none focus:ring focus:ring-gray-400">
+          className="float-right w-40 ml-auto p-0.5 border-2 border-gray-200 bg-hover_color bg-opacity-75
+          focus:border-gray-300 focus:outline-none  rounded-md text-sm ">
 
           {(categoryList ?? []).map((c) => (
             <option key={c.id} value={c.name}>
               {c.name}
             </option>
         ))}
-
         </select>
             <input 
             type="text"
             placeholder="제목을 입력하세요."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-3 border border-gray-500 rounded-md focus:outline-none focus:ring focus:ring-gray-400 "/>
+            className="w-full p-3 border mt-3 h-12 text-sl rounded-md 
+            focus:outline-none border-main_color focus:ring focus:ring-hover_color"/>
 
             <textarea
             placeholder="내용을 입력하세요."
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="w-full h-96 p-3 border border-gray-500 rounded-md focus:outline-none focus:ring focus:ring-gray-400"/>
+            className="w-full h-64 p-3 mt-3 rounded-md overflow-y-scroll
+            focus:outline-none border  border-main_color focus:ring focus:ring-hover_color"/>
 
             <button type="submit"
-            className="float-right px-5 py-2 bg-gray-500 text-white font-semibold rounded-md hover:bg-gray-700">등록</button>
+            className="float-right mt-3 pr-4 pl-4 p-2 mb-11 hover:text-gray-700 border-2 border-gray-200 hover:bg-hover_color 
+            text-gray-700 font-semibold rounded-md bg-gray-200 text-sm">등록</button>
             </form>
+      </div>
+      
         </div>
   );
 }

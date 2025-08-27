@@ -28,7 +28,7 @@ const ListDetail = () => {
     }
 
     return (
-        <div>
+        <div className="font-mono">
             {/* <h1 style={{textAlign : "center"}}>상세보기</h1>
             <div style={{padding : "50px 200px"}}>
                 <div style={{display : "flex", justifyContent: "space-between"}}>
@@ -49,24 +49,24 @@ const ListDetail = () => {
                     <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={() => setIsDeleteModal(false)}>취소</button>
                 </div>
             } */}
-            <h1 className="text-center text-3xl font-bold my-4">상세보기</h1>
-            <div className="px-48 py-12">
-                <div className="flex justify-between">
+            <div className="text-center text-3xl mt-6">{selectedMovie.title}</div>
+            <div className="px-60 py-12">
+                <div className="flex justify-between text-sm font-semibold">
                     <div>장르: {selectedMovie.category}</div>
                     <div>등록일: {selectedMovie.date}</div>
                 </div> 
-                <h2 className="mt-12 text-2xl font-semibold">{selectedMovie.title}</h2>
-                <div className="mt-12 border border-gray-300 p-8 h-48">{selectedMovie.content}</div>
+                {/* <h2 className="mt-12 text-2xl font-semibold">{selectedMovie.title}</h2> */}
+                <div className="mt-6 border-2 rounded-md border-hover_color pr-8 pl-8 pt-5 h-52 overflow-y-scroll">{selectedMovie.content}</div>
             </div>
             <div className="text-center">
-                <button onClick={moveToEditList} className="mx-5 my-2.5 px-4 py-2 bg-main_gray border-2 border-gray-400 text-black rounded hover:bg-hover_main_gray transition-colors">수정</button>
-                <button onClick={isDelete} className="mx-5 my-2.5 px-4 py-2 bg-main_gray border-2 border-gray-400 text-black rounded hover:bg-hover_main_gray transition-colors">삭제</button>
+                <button onClick={moveToEditList} className="mx-5 my-2.5 px-4 py-2 bg-main_gray border-2 border-gray-300 text-black rounded-md hover:border-gray-200 hover:bg-hover_color transition-colors">수정</button>
+                <button onClick={isDelete} className="mx-5 my-2.5 px-4 py-2 bg-main_gray border-2 border-gray-300 text-black rounded-md hover:border-gray-200 hover:bg-hover_color transition-colors">삭제</button>
             </div>
             {isDeleteModal && 
-                <div className="text-center bg-main_gray_a border border-black p-8 w-[500px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 rounded-lg shadow-lg" >
-                    <h2 className="text-lg font-semibold mb-6">해당 게시글을 삭제하시겠습니까?</h2>
-                    <button className="mx-5 my-2.5 px-4 py-2 bg-main_gray border-2 border-gray-400 text-black rounded hover:bg-hover_main_gray transition-colors" onClick={deleteList}>확인</button>
-                    <button className="mx-5 my-2.5 px-4 py-2 bg-main_gray border-2 border-gray-400 text-black rounded hover:bg-hover_main_gray transition-colors" onClick={() => setIsDeleteModal(false)}>취소</button>
+                <div className="text-center bg-sub_color2 bg-opacity-50 border border-gray-200 p-8 w-[500px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 rounded-lg shadow-lg" >
+                    <h2 className="text-xl text-gray-700 font-semibold mb-16">해당 게시글을 삭제하시겠습니까?</h2>
+                    <button className="mx-5 my-2.5 px-4 py-2 bg-main_color border border-gray-200 text-white rounded-lg  hover:bg-gray-100 hover:text-gray-700 hover:border-main_color transition-colors" onClick={deleteList}>확인</button>
+                    <button className="mx-5 my-2.5 px-4 py-2 bg-main_color border border-gray-200 text-white rounded-lg  hover:bg-gray-100 hover:text-gray-700 hover:border-main_color transition-colors" onClick={() => setIsDeleteModal(false)}>취소</button>
                 </div>
             }
         </div>
