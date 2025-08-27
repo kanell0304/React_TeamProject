@@ -49,14 +49,13 @@ const EditList = () => {
   
      return (
         <div>            
-            <div className="flex flex-col justify-center items-center min-h-screen">
-                <div className="flex flex-col w-[800px] mx-auto p-5 gap-1 items-stretch">
-                    <h2 className="text-center text-4xl text-gray-600 border-b-2 border-b-gray-500 p-4 font-black font-sans pt-4 ">
+            <div className="flex flex-col justify-start items-center min-h-screen">
+                <div className="flex flex-col w-[800px] mx-auto p-4 gap-1 items-stretch">
+                    <h2 className="text-center text-4xl text-gray-600 border-b-2 border-b-gray-500 p-4 font-black font-sans pt-4">
                         리뷰글 수정
                     </h2>
                     <div className="flex items-end gap-5">
-                        <span className="mb-1 font-semibold text-gray-400">{review.date}</span>
-                            {/* 장르 변경 옵션 */}
+                        <span className="mb-1 font-semibold text-gray-400">{review.date}</span>                            
                         {review.id &&
                         <select 
                             value={review.category} 
