@@ -35,7 +35,7 @@ const List = () => {
         //     })}
         // </div>
         <div className="w-1/2 mx-auto">
-            <button onClick={createTempList}>임시 리스트 생성 및 초기화</button>
+            <button className="bg-gray-200 border-2 border-gray-400 px-2 py-1 hover:bg-gray-100 active:border-gray-600 text-sm rounded-sm" onClick={createTempList}>임시 리스트 생성 및 초기화</button>
             <div className="w-full min-w-[800px] p-2.5 flex border border-black bg-gray-300">
                 <div className="w-1/5 text-center">번호</div>
                 <div className="w-1/2 text-center">내용</div>
