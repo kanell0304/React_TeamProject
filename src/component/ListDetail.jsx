@@ -29,33 +29,12 @@ const ListDetail = () => {
 
     return (
         <div className="font-mono">
-            {/* <h1 style={{textAlign : "center"}}>상세보기</h1>
-            <div style={{padding : "50px 200px"}}>
-                <div style={{display : "flex", justifyContent: "space-between"}}>
-                    <div>장르: {selectedMovie.category}</div>
-                    <div>등록일: {selectedMovie.date}</div>
-                </div>
-                <h2 style={{marginTop : "50px"}}>{selectedMovie.title}</h2>
-                <div style={{marginTop : "50px", border : "1px solid #dee2e6", padding : "30px", height : "200px"}}>{selectedMovie.content}</div>
-            </div>
-            <div style={{textAlign : "center"}}>
-                <button onClick={moveToEditList} style={{margin : "0px 50px", padding : "10px 30px"}}>수정</button>
-                <button onClick={isDelete} style={{margin : "0px 50px", padding : "10px 30px"}}>삭제</button>
-            </div>
-            {isDeleteModal && 
-                <div style={{textAlign : "center", border : "1px solid black", padding : "30px", width : "500px", backgroundColor : "rgba(172, 187, 207, 0.4)", position : "fixed", top : "50%", left : "50%", transform : "translate(-50%, -50%)"}}>
-                    <h2>해당 게시글을 삭제하시겠습니까?</h2>
-                    <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={deleteList}>확인</button>
-                    <button style={{margin : "10px 20px", padding : "5px 10px"}} onClick={() => setIsDeleteModal(false)}>취소</button>
-                </div>
-            } */}
             <div className="text-center text-3xl mt-6">{selectedMovie.title}</div>
             <div className="px-60 py-12">
                 <div className="flex justify-between text-sm font-semibold">
                     <div>장르: {selectedMovie.category}</div>
                     <div>등록일: {selectedMovie.date}</div>
                 </div> 
-                {/* <h2 className="mt-12 text-2xl font-semibold">{selectedMovie.title}</h2> */}
                 <div className="mt-6 border-2 rounded-md border-hover_color pr-8 pl-8 pt-5 h-52 overflow-y-scroll">{selectedMovie.content}</div>
             </div>
             <div className="text-center">
