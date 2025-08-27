@@ -33,100 +33,69 @@ const EditList = () => {
             }
             else{
             const savedList = JSON.parse(localStorage.getItem("lists")) || [];
-                       
+            const newTime = `${now} (수정됨)`;
             const editedReview = savedList.map((prev)=>(
                 prev.id === review.id ? {
                     ...prev, 
                     ...review,
-                    date:now
+                    date:newTime
                     } : prev ));            
 
             localStorage.setItem("lists",JSON.stringify(editedReview));
             
             navigate('/');                      
             }
-        }        
-       
-    return (
-        <div>
-            {/* <Navibar /> */}
-            <div className="container">
-                <div className="inner-container">
-                    <h2 className="page-edit">리뷰글 수정</h2>
-                    <span>{review.date}</span>
-                        
-                    {review.id &&
-                    <select value={review.category} onChange={(e)=>setReview({...review,category:e.target.value})} className="select-genre">
-                        <option value={review.category}>{review.category}</option>
-                        {restCategory.map((genre)=>(
-                            <option key={genre.id} value={genre.name}>
-                                {genre.name}
-                            </option>))}
-                    </select>}
-                    <form className="form-box" onSubmit={updateReview}>
-                        <div>
-                        <input className="form-title" ref={focusRef} value={review.title} onChange={e=>setReview({...review,title:e.target.value})} type="text" />
+        }   
+  
+     return (
+        <div>            
+            <div className="flex flex-col justify-center items-center min-h-screen">
+                <div className="flex flex-col w-[800px] mx-auto p-5 gap-1 items-stretch">
+                    <h2 className="text-center text-4xl text-gray-600 border-b-2 border-b-gray-500 p-4 font-black font-sans pt-4 ">
+                        리뷰글 수정
+                    </h2>
+                    <div className="flex items-end gap-5">
+                        <span className="mb-1 font-semibold text-gray-400">{review.date}</span>
+                            {/* 장르 변경 옵션 */}
+                        {review.id &&
+                        <select 
+                            value={review.category} 
+                            onChange={(e)=>setReview({...review,category:e.target.value})} 
+                            className="border w-48 ml-auto p-1 mb-1 mr-0 mt-6">
+
+                            <option value={review.category}>{review.category}</option>
+                            {restCategory.map((genre)=>(
+                                <option key={genre.id} value={genre.name}>
+                                    {genre.name}
+                                </option>))}
+                        </select>}
+                    </div>
+                    <form   className="flex flex-col gap-1 m-0 " 
+                            onSubmit={updateReview}>
+                        <div className="border border-gray-200 p-2 mb-2 rounded-sm shadow-sm">
+                            <input 
+                                className="w-full p-2 text-xl border bg-gray-50 border-gray-50 rounded-md" 
+                                ref={focusRef} value={review.title} 
+                                onChange={e=>setReview({...review,title:e.target.value})} 
+                                type="text" 
+                            />
                         </div>
-                        <textarea className="form-content" value={review.content} onChange={e=>setReview({...review,content:e.target.value})}/><br/>           
-                        <button className="button-edit" type="submit">수정</button>
+                        <textarea 
+                            className="w-full border h-80 resize-none p-3 border-gray-200 rounded-sm shadow-md" 
+                            value={review.content} 
+                            onChange={e=>setReview({...review,content:e.target.value})}
+                        />                        
+                        <button 
+                            className="ml-auto text-1 font-bold text-gray-700 px-8 py-2 
+                                        border-2 border-gray-700 bg-main_gray rounded-lg rounded-tl-lg mt-2 text-lg hover:bg-gray-300 shadow-lg" 
+                            type="submit">수　정</button>
+                        
+                        
                     </form>
                 </div>
             </div>
         </div>
     );
-    //  return (
-    //     <div>            
-    //         <div className="flex flex-col justify-center items-center min-h-screen">
-    //             <div className="flex flex-col w-[800px] mx-auto p-5 gap-1 items-stretch">
-    //                 <h2 className="text-center text-4xl text-gray-600 border-b-2 border-b-gray-500 p-4 font-black font-sans pt-4 ">
-    //                     리뷰글 수정
-    //                 </h2>
-    //                 <div className="flex items-end gap-5">
-    //                     <span className="mb-1 font-semibold text-gray-400">{review.date}</span>
-    //                         {/* 장르 변경 옵션 */}
-    //                     {review.id &&
-    //                     <select 
-    //                         value={review.category} 
-    //                         onChange={(e)=>setReview({...review,category:e.target.value})} 
-    //                         className="border w-48 ml-auto p-1 mb-1 mr-0 mt-6">
-
-    //                         <option value={review.category}>{review.category}</option>
-    //                         {restCategory.map((genre)=>(
-    //                             <option key={genre.id} value={genre.name}>
-    //                                 {genre.name}
-    //                             </option>))}
-    //                     </select>}
-    //                 </div>
-    //                 <form   className="flex flex-col gap-1 m-0 " 
-    //                         onSubmit={updateReview}>
-    //                     <div className="border border-gray-200 p-2 mb-2 rounded-sm shadow-sm">
-    //                         <input 
-    //                             className="w-full p-2 text-xl border bg-gray-50 border-gray-50 rounded-md" 
-    //                             ref={focusRef} value={review.title} 
-    //                             onChange={e=>setReview({...review,title:e.target.value})} 
-    //                             type="text" 
-    //                         />
-    //                     </div>
-    //                     <textarea 
-    //                         className="w-full border h-80 resize-none p-3 border-gray-200 rounded-sm shadow-md" 
-    //                         value={review.content} 
-    //                         onChange={e=>setReview({...review,content:e.target.value})}
-    //                     />
-    //                     {/* 빈버튼 */}
-    //                     <button 
-    //                         className="ml-auto text-1 font-bold text-gray-700 px-8 py-2 
-    //                                     border-2 border-gray-500 rounded-br-lg rounded-tl-lg mt-2 text-lg hover:bg-custom_gray shadow-lg" 
-    //                         type="submit">수　정</button>
-    //                     {/* 찬버튼 */}
-    //                     <button 
-    //                         className="ml-auto text-1 font-bold text-white px-9 py-2 
-    //                                     bg-custom_gray rounded-md mt-2 text-lg hover:bg-gray-300 shadow-lg" 
-    //                         type="submit">수　정</button>
-    //                 </form>
-    //             </div>
-    //         </div>
-    //     </div>
-    // );
 };
 
 export default EditList;
