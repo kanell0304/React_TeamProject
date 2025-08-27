@@ -1,14 +1,13 @@
 import { useContext, useState } from "react";
 import { ListProvider } from "./ListContext";
 import { useNavigate } from "react-router-dom";
-import '../tempCss/CategoryCRD.css';
 
 const CategoryCRD = () => {
 
     const {categoryList, setCategoryList} = useContext(ListProvider);
     const [visibleDelBtn, setVisibleDelBtn] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [inputCategory, setInputCategory] = useState();
+    const [inputCategory, setInputCategory] = useState('');
     const navigate = useNavigate();
 
     // 카테고리에 마우스를 올려놨을때
@@ -35,35 +34,39 @@ const CategoryCRD = () => {
 
     //category 추가
     const addCategory = ()=>{
+        if(inputCategory !== ''){
         categoryList.push({id:Date.now(),name : inputCategory});
         setCategoryList(categoryList);
-        navigate('/');  
+        navigate('/');
+        }
     }
 
     return (
-        <div className="categoryManage">
-            <div>
-                <h1>카테고리 목록</h1>
+        <div className="flex justify-center">
+            <div className="flex justify-items-center p-10 mr-20">
+                <div>
+                    <div className="text-center text-3xl mb-6">카테고리 목록</div>
         {categoryList && categoryList.map(category => {
             return (
-                <div className='cateList' onMouseEnter={() => onMouse(category)}  onMouseLeave={leaveMouse}>                
-                    <span key={category.id}>{category.name}</span>
+                <div className='w-40 h-16 p-3 ml-5 mr-5 hover:bg-slate-400 hover:border hover:border-black' onMouseEnter={() => onMouse(category)}  onMouseLeave={leaveMouse}>                
+                    <span className="text-sm" key={category.id}>{category.name}</span>
                     {visibleDelBtn && // 마우스가 올려졌는지
                         selectedCategory.id === category.id ? // 마우스가 올라간 카테고리가 현재 카테고리 목록의 카테고리와 id가 일치하는지
-                        <div className="cateListBtn">
-                        <button  onClick={() => deleteCategory(category)}>삭제</button>
+                        <div className="justify-self-end text-xs ">
+                        <button className="bg-white pl-2 pr-2 " onClick={() => deleteCategory(category)}>삭제</button>
                         </div>
                          : // 일치한다면 삭제버튼이 보임
                         <div></div> // 아니라면 아무것도 안보임
                     }
                 </div>
             )
-        })}
-        <hr/>
-        <h2>카테고리 생성</h2>
-        <input value={inputCategory} onChange={(e) => setInputCategory(e.target.value)} placeholder="카테고리 이름 입력" />
-        <button onClick={addCategory} >추가</button>
-            </div>
+        })}</div>
+         </div>
+         <div>
+            <div className="text-center text-3xl  mt-10 mb-6 ">카테고리 생성</div>
+            <input className='text-sm h-8 ml-7 border border-black p-3' value={inputCategory} onChange={(e) => setInputCategory(e.target.value)} placeholder="카테고리 이름 입력" />
+            <button className='ml-5 hover:bg-slate-400 pr-3 pl-3 p-2 border border-black text-xs' onClick={addCategory} >추가</button>
+         </div>
         </div>
     )
 }
