@@ -61,11 +61,13 @@ const EditList = () => {
                         <select 
                             value={review.category} 
                             onChange={(e)=>setReview({...review,category:e.target.value})} 
-                            className="border w-48 ml-auto p-1 mb-1 mr-0 mt-6">
+                            className="font-semibold text-gray-600 border w-48 ml-auto p-1 mb-1 mr-0 mt-6">
 
-                            <option value={review.category}>{review.category}</option>
+                            <option className="font-semibold text-gray-600" 
+                                value={review.category}>{review.category}</option>
+
                             {restCategory.map((genre)=>(
-                                <option key={genre.id} value={genre.name}>
+                                <option className="font-semibold text-gray-600" key={genre.id} value={genre.name}>
                                     {genre.name}
                                 </option>))}
                         </select>}
@@ -86,9 +88,10 @@ const EditList = () => {
                             onChange={e=>setReview({...review,content:e.target.value})}
                         />                        
                         <button 
-                            className="ml-auto text-1 font-bold text-gray-700 px-8 py-2 
-                                        border-2 border-gray-700 bg-main_gray rounded-lg rounded-tl-lg mt-2 text-lg hover:bg-gray-300 shadow-lg" 
-                            type="submit">수　정</button>
+                            className="ml-auto text-1 font-bold text-gray-700 px-4 py-2 
+                                        border-2 border-gray-700 bg-main_gray rounded-md
+                                        mt-2 text-lg hover:bg-gray-300 transition-colors shadow-lg" 
+                            type="submit">수정</button>
                         
                         
                     </form>
