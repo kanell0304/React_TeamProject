@@ -3,87 +3,93 @@ import { useNavigate } from "react-router-dom";
 import { useDate } from "../customHook/useHooks";
 import { ListProvider } from "./ListContext";
 
+function MovieReview({ onAddReview }) {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const { categoryList } = useContext(ListProvider);
+  const [category, setCategory] = useState("Horror");
+  const navigate = useNavigate();
+  const date = useDate();
+  
 
-function MovieReview({onAddReview}) {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
-    const {categoryList} = useContext(ListProvider);
-    const [category, setCategory] = useState("Horror");
-    const navigate = useNavigate();
-    const [isRegist, setIsRegist] = useState(false);
-    const date = useDate();
-    
-    const [movieList, setMovieList] = useState(() => {
+  const [movieList, setMovieList] = useState(() => {
     const saved = localStorage.getItem("lists");
     return saved ? JSON.parse(saved) : [];
-    });
+  });
 
-    const onSubmitReview = (e) => {
-        e.preventDefault();
+  useEffect(() => {
+    if (!categoryList || categoryList.length === 0) return;
+    const names = categoryList.map((c) => c.name);
+    if (!names.includes(category)) {
+      setCategory(names[0]); 
+    }
+  }, [categoryList]);
 
-        if (!title || !content) {
-            return alert("제목과 내용을 입력하세요!");
-        }
+  useEffect(() => {
+    localStorage.setItem("lists", JSON.stringify(movieList));
+  }, [movieList]);
 
-        const maxId = movieList.length > 0 ? Math.max(...movieList.map((m) => m.id)) : 0;
+  const onSubmitReview = (e) => {
+    e.preventDefault();
+    if (!title || !content) {
+      return alert("제목과 내용을 입력하세요!");
+    }
 
-        const newReview = {
-            id: maxId + 1,
-            title,
-            category,
-            date,
-            content,
-        };
+    const maxId = movieList.length > 0 ? Math.max(...movieList.map((m) => m.id)) : 0;
 
-        setMovieList([...movieList, newReview]);
-        alert("리뷰가 등록 되었습니다.");
-
-        setTitle("");
-        setCategory("Horror");
-        setContent("");
-
-        navigate("/");
-        setIsRegist(true);
+    const newReview = {
+      id: maxId + 1,
+      title,
+      category,
+      date,
+      content,
     };
 
-    useEffect(() => {
-        localStorage.setItem("lists", JSON.stringify(movieList));
-        console.log("로컬 등록");
-        setIsRegist(false);
-    }, [isRegist])
+    setMovieList((prev) => [...prev, newReview]);
+    alert("리뷰가 등록 되었습니다.");
 
-    return (
-        <div style={{ maxWidth: "700px", margin: "0 auto", padding: "20px" }}>
-            <h2 style={{ textAlign: "center" }}>영화 리뷰 작성</h2>
-            <form onSubmit={onSubmitReview}>
-            <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-              style={{ width: '130px', height: "25px", padding: '3px', marginBottom: "10px", float: 'right' }}>
-                {categoryList && categoryList.map(categoryLi => {
-                    return (
-                        <option key={categoryLi.id} value={categoryLi.name}>{categoryLi.name}</option>
-                    )
-                })}
-              </select>
+    setTitle("");
+    setContent("");
+
+    if (typeof onAddReview === "function") onAddReview(newReview);
+    navigate("/");
+  };
+
+  return (
+    <div className="max-w-2x1 mx-auto p-8">
+      <h2 className="text-4xl font-bold text-center mb-8">영화 리뷰 작성</h2>
+
+      <form onSubmit={onSubmitReview} className="space-y-4">
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="block w-40 ml-auto p-0.5 border border-gray-500 rounded-md text-sm focus:outline-none focus:ring focus:ring-gray-400">
+
+          {(categoryList ?? []).map((c) => (
+            <option key={c.id} value={c.name}>
+              {c.name}
+            </option>
+        ))}
+
+        </select>
             <input 
             type="text"
             placeholder="제목을 입력하세요."
             value={title}
-            onChange={(e) =>
-              setTitle(e.target.value)}
-            style={{ width: "100%", padding: "10px", marginBottom: "25px" }}/>
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full p-3 border border-gray-500 rounded-md focus:outline-none focus:ring focus:ring-gray-400 "/>
+
             <textarea
             placeholder="내용을 입력하세요."
             value={content}
             onChange={(e) => setContent(e.target.value)}
-                style={{ width: "100%", height: "120px", padding: "10px", marginBottom: "10px"}}/>
+            className="w-full h-96 p-3 border border-gray-500 rounded-md focus:outline-none focus:ring focus:ring-gray-400"/>
+
             <button type="submit"
-                style={{ width: '70px', height: "40px", padding: "10px 15px", float: 'right' }}>등록</button>
+            className="float-right px-5 py-2 bg-gray-500 text-white font-semibold rounded-md hover:bg-gray-700">등록</button>
             </form>
         </div>
-    );
-};
-
+  );
+}
 
 export default MovieReview
