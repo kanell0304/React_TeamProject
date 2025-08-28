@@ -34,7 +34,7 @@ const List = () => {
                 return (
                     <div key={movie.id} onClick={() => moveToDetail(movie.id)} className="max-h-14 min-w-[800px] w-full p-3 flex justify-self-center border border-b-gray-700 cursor-pointer hover:bg-gray-50">
                         <div className="w-1/5 text-center text-sm ">{movie.id}</div>
-                        <div className="w-1/2 text-center text-xs pr-5 overflow-y-scroll">{movie.title}</div>
+                        <div className="w-1/2 text-center text-xs pr-5">{movie.title}</div>
                         <div className="w-3/10 text-center text-xs pt-5 font-semibold">{movie.date}</div>
                     </div>
                 )
