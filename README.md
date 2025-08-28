@@ -2,7 +2,7 @@
 이경준 - 개발환경세팅, 리스트 페이지, 리스트 상세보기, 카테고리 페이지, 카테고리 삭제, CSS
 함현준 - 리스트 수정 페이지, customHook, 코드AS, CSS
 한예원 - 리스트 검색 페이지, 카테고리별 검색 페이지, 카테고리 생성, CSS기본틀(Figma), CSS
-임다빈 - 리스트 추가, CSS
+임다빈 - 리스트 추가 페이지, CSS
 
 Node.js version: v20.19.4 <br>
 Tailwind 설치 방법 notion: https://www.notion.so/TailwindCss-24f974c0f4ae809485aec53c77a72467 <br>
